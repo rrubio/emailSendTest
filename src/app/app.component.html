@@ -1,3 +1,64 @@
-<h1>
-  {{title}}
-</h1>
+<div class="main-content">
+
+        <form [formGroup]="emailForm" (ngSubmit)="sendEmail($event)" class="form-basic">
+
+            <div class="form-title-row">
+                <h1>Email Form</h1>
+            </div>
+
+            <div class="form-row">
+                <label>
+                    <span>Subject</span>
+                    <input formControlName="emailSubject" type="text" placeholder="Subject">
+                </label>
+            </div>
+
+            <div class="form-row">
+                <label>
+                    <span>To</span>
+                    <input type="email" formControlName="toEmail" placeholder="email@test.com">
+                    <control-messages [control]="emailForm.controls.toEmail"></control-messages>
+                </label>
+            </div>
+
+            <div class="form-row">
+                <label>
+                    <span>Cc</span>
+                    <input type="text" formControlName="ccEmail" placeholder="email@test.com">
+                    
+                </label>
+            </div>
+            
+            <div class="form-row">
+                <label>
+                    <span>Bcc</span>
+                    <input type="email" formControlName="bccEmail" placeholder="email@test.com">
+                    
+                </label>
+            </div>
+
+            <div class="form-row">
+                <label>
+                    <span>Message</span>
+                    <textarea formControlName="emailMessage"></textarea>
+                    <control-messages [control]="emailForm.controls.emailMessage"></control-messages>
+                </label>
+            </div>
+
+            <div class="form-row" *ngIf="showSendEmail">            
+                <button type="submit" [disabled]="!emailForm.valid">Send Email</button>
+            </div>
+
+            <div class="form-row" *ngIf="emailSent">
+                <!-- button class="sent-email" [disabled]="!emailForm.valid">Success Email Sent</button -->
+                <div class="success">Yay! - Email Sent</div>
+            </div>
+
+            <div class="form-row" *ngIf="emailError">
+                <!-- button class="sent-email" [disabled]="!emailForm.valid">Success Email Sent</button -->
+                <div class="error">Oops! - something went wrong please try again later</div>
+            </div>
+
+        </form>
+
+    </div>

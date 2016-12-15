@@ -10,8 +10,8 @@ export class DataService {
   // private primaryEmailProvider   = "http://localhost:3000/testPostSendgrid";
   // private secondaryEmailProvider = "http://localhost:3000/testMailGunPost";
 
-  private primaryEmailProvider   = "http://emailsend-94395.onmodulus.net/testPostSendgrid";
-  private secondaryEmailProvider = "http://emailsend-94395.onmodulus.net/testMailGunPost";
+  private primaryEmailProvider   = "https://emailsend-94395.onmodulus.net/testPostSendgrid";
+  private secondaryEmailProvider = "https://emailsend-94395.onmodulus.net/testMailGunPost";
 
   constructor(private _http: Http) { }
 
